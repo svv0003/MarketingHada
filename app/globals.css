@@ -19,8 +19,237 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+  scroll-padding-top: 64px;
+}
+
+/* 메인 페이지의 각 섹션이 스냅 포인트가 되게 */
+.snap-section {
+  scroll-snap-align: start;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================================================
+   사이트 컴포넌트 스타일 — 모든 섹션 스타일 여기에 모음
+   ========================================================= */
+
+/* ---------- Header ---------- */
+.site-header {
+  @apply fixed top-0 left-0 right-0 z-40 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between bg-white/80 backdrop-blur shadow-sm;
+}
+.site-logo {
+  @apply text-purple-700 font-bold text-base md:text-lg tracking-wide;
+}
+.menu-button {
+  @apply text-2xl md:text-3xl text-gray-900 cursor-pointer transition hover:opacity-70;
+}
+
+/* ---------- SlideBar ---------- */
+.slidebar-overlay {
+  @apply fixed inset-0 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 z-40;
+}
+.slidebar-overlay.is-open {
+  @apply opacity-100 pointer-events-auto;
+}
+
+.slidebar {
+  @apply fixed top-0 right-0 h-screen w-72 bg-white z-50 shadow-2xl translate-x-full transition-transform duration-300;
+}
+.slidebar.is-open {
+  @apply translate-x-0;
+}
+
+.slidebar-close {
+  @apply absolute top-4 right-4 text-2xl text-gray-700 cursor-pointer transition hover:opacity-70;
+}
+
+.slidebar-menu {
+  @apply mt-20 px-8 space-y-4;
+}
+.slidebar-menu li {
+  @apply text-base font-medium text-gray-900;
+}
+.slidebar-menu a {
+  @apply block py-3 border-b border-gray-100 transition hover:text-purple-700;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  @apply relative h-screen w-full overflow-hidden;
+}
+.hero-bg {
+  @apply absolute inset-0 bg-gradient-to-br from-slate-700 to-slate-900 blur-sm;
+}
+.hero-image {
+  @apply object-cover blur-sm scale-110;
+}
+.hero-overlay {
+  @apply absolute inset-0 bg-black/30;
+}
+.hero-content {
+  @apply relative z-10 flex h-full items-center justify-center px-4;
+}
+.hero-title {
+  @apply text-center text-xl md:text-3xl font-bold text-white leading-relaxed;
+}
+
+/* ---------- About ---------- */
+.about {
+  @apply min-h-screen bg-white px-6 py-24 flex items-center;
+}
+.about-inner {
+  @apply max-w-3xl mx-auto text-center w-full;
+}
+.about-title {
+  @apply text-2xl md:text-3xl font-bold mb-12;
+}
+.about-content {
+  @apply space-y-6 text-gray-700 text-sm md:text-base leading-loose;
+}
+
+/* ---------- Reason ---------- */
+.reason {
+  @apply min-h-screen bg-purple-100 px-6 py-24 flex items-center;
+}
+.reason-inner {
+  @apply max-w-3xl mx-auto text-center w-full;
+}
+.reason-title {
+  @apply text-lg md:text-xl font-bold mb-10 text-gray-900;
+}
+.reason-content {
+  @apply space-y-3 text-gray-700 text-sm md:text-base leading-relaxed;
+}
+.reason-emphasis {
+  @apply font-semibold text-gray-900 pt-3;
+}
+
+/* ---------- Services ---------- */
+.services {
+  @apply min-h-screen bg-gray-50 px-6 py-24 flex items-center;
+}
+.services-inner {
+  @apply max-w-6xl mx-auto w-full;
+}
+.services-title {
+  @apply text-2xl md:text-3xl font-bold text-center mb-12 text-gray-900;
+}
+.services-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-8;
+}
+
+.service-card {
+  @apply bg-white rounded-2xl p-6 md:p-8 shadow-md transition-shadow hover:shadow-xl;
+}
+.service-card-icon {
+  @apply h-24 flex items-center justify-center mb-4 text-5xl;
+}
+.service-card-title {
+  @apply text-lg md:text-xl font-bold mb-3 text-gray-900;
+}
+.service-card-desc {
+  @apply text-gray-600 text-sm leading-relaxed whitespace-pre-line;
+}
+
+/* ---------- Reviews ---------- */
+.reviews {
+  @apply min-h-screen bg-white px-6 py-24 flex items-center;
+}
+.reviews-inner {
+  @apply max-w-6xl mx-auto w-full;
+}
+.reviews-title {
+  @apply text-2xl md:text-3xl font-bold text-center mb-12 text-gray-900;
+}
+.reviews-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.review-card {
+  @apply bg-white rounded-2xl overflow-hidden shadow-md transition-shadow hover:shadow-xl;
+}
+.review-card-image-wrap {
+  @apply relative h-72;
+}
+.review-card-image {
+  @apply object-cover;
+}
+.review-card-placeholder {
+  @apply h-72 bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center text-slate-500 text-xs;
+}
+.review-card-label {
+  @apply p-4 text-center text-base font-semibold text-gray-900;
+}
+
+/* ---------- Final Message ---------- */
+.final {
+  @apply relative h-screen w-full overflow-hidden;
+}
+.final-bg {
+  @apply absolute inset-0 bg-gradient-to-br from-purple-900 via-slate-800 to-slate-900 blur-sm;
+}
+.final-overlay {
+  @apply absolute inset-0 bg-black/30;
+}
+.final-content {
+  @apply relative z-10 flex flex-col h-full items-center justify-center text-center px-6 text-white;
+}
+.final-title {
+  @apply text-base md:text-2xl font-bold leading-relaxed mb-10 max-w-3xl;
+}
+.final-label {
+  @apply text-[10px] uppercase tracking-widest mb-2 opacity-70;
+}
+.final-phone {
+  @apply text-lg md:text-2xl font-semibold;
+}
+
+/* ---------- Contact Page ---------- */
+.contact-page {
+  @apply min-h-screen bg-white py-32 px-6;
+}
+.contact-inner {
+  @apply max-w-2xl mx-auto;
+}
+.contact-title {
+  @apply text-2xl md:text-3xl font-bold mb-3 text-gray-900 text-center;
+}
+.contact-desc {
+  @apply text-sm md:text-base text-gray-600 text-center mb-12;
+}
+
+/* Contact Form */
+.contact-form {
+  @apply space-y-5;
+}
+.form-field {
+  @apply flex flex-col gap-2;
+}
+.form-field label {
+  @apply text-sm font-semibold text-gray-700;
+}
+.form-field input,
+.form-field textarea {
+  @apply w-full px-4 py-3 text-sm md:text-base border border-gray-300 rounded-lg outline-none transition focus:border-purple-500 focus:ring-2 focus:ring-purple-200;
+}
+.form-field textarea {
+  @apply resize-y;
+}
+
+.contact-submit {
+  @apply w-full py-3 bg-purple-700 text-white text-sm md:text-base font-semibold rounded-lg cursor-pointer transition hover:bg-purple-800 disabled:bg-gray-400 disabled:cursor-not-allowed;
+}
+
+.form-success {
+  @apply mt-4 p-3 bg-green-50 text-green-700 text-sm rounded-lg text-center;
+}
+.form-error {
+  @apply mt-4 p-3 bg-red-50 text-red-700 text-sm rounded-lg text-center;
 }

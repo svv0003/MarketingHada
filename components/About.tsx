@@ -1,10 +1,12 @@
+import AnimatedSection from "./AnimatedSection";
+
 export default function About() {
     return (
-        <section id="about" className="bg-white py-24 px-6">
-            <div className="max-w-3xl mx-auto text-center">
-                <h2 className="text-5xl font-bold mb-16">About us</h2>
+        <section id="about" className="about">
+            <AnimatedSection className="about-inner">
+                <h2 className="about-title">About us</h2>
 
-                <div className="space-y-8 text-gray-700 text-lg leading-loose">
+                <div className="about-content">
                     <p>
                         디지털 환경은 빠르게 변화하고 있습니다.
                         <br />
@@ -31,7 +33,7 @@ export default function About() {
                         그것이 우리가 추구하는 마케팅입니다.
                     </p>
                 </div>
-            </div>
+            </AnimatedSection>
         </section>
     );
 }

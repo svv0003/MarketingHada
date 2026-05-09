@@ -7,20 +7,16 @@ type ReviewCardProps = {
 
 export default function ReviewCard({ label, image }: ReviewCardProps) {
     return (
-        <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+        <div className="review-card">
             {image ? (
-                <div className="relative h-80">
-                    <Image src={image} alt={label} fill className="object-cover" />
+                <div className="review-card-image-wrap">
+                    <Image src={image} alt={label} fill className="review-card-image" />
                 </div>
             ) : (
-                <div className="h-80 bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center text-slate-500 text-sm">
-                    후기 이미지
-                </div>
+                <div className="review-card-placeholder">후기 이미지</div>
             )}
 
-            <div className="p-4 text-center">
-                <p className="text-lg font-semibold text-gray-900">{label}</p>
-            </div>
+            <div className="review-card-label">{label}</div>
         </div>
     );
 }

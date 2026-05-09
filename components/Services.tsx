@@ -1,4 +1,5 @@
 import ServiceCard from "./ServiceCard";
+import AnimatedSection from "./AnimatedSection";
 
 const services = [
     {
@@ -19,28 +20,26 @@ const services = [
         description:
             "SNS가 필수가 된 시대,\n전 세계 수십억 명이 소통하는 플랫폼입니다.\n콘텐츠 하나로 고객의 관심을 끌고, 전환까지 이어지는 구조를 만듭니다.",
     },
-    {
-        title: "유튜브",
-        icon: "🎥",
-        description:
-            "가장 강력한 영상 플랫폼,\n브랜드를 깊이 있게 전달할 수 있는 채널입니다.",
-    },
+    // {
+    //     title: "유튜브",
+    //     icon: "🎥",
+    //     description:
+    //         "가장 강력한 영상 플랫폼,\n브랜드를 깊이 있게 전달할 수 있는 채널입니다.",
+    // },
 ];
 
 export default function Services() {
     return (
-        <section id="services" className="bg-gray-50 py-24 px-6">
-            <div className="max-w-6xl mx-auto">
-                <h2 className="text-5xl font-bold text-center mb-16 text-gray-900">
-                    Services
-                </h2>
+        <section id="services" className="services">
+            <AnimatedSection className="services-inner">
+                <h2 className="services-title">Services</h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="services-grid">
                     {services.map((service) => (
                         <ServiceCard key={service.title} {...service} />
                     ))}
                 </div>
-            </div>
+            </AnimatedSection>
         </section>
     );
 }
