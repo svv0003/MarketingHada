@@ -11,10 +11,10 @@ type AnimatedSectionProps = {
 export default function AnimatedSection({ children, className = "" }: AnimatedSectionProps) {
     return (
         <motion.div
-            initial={{ y: 80, opacity: 0 }}
+            initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, amount: 0.3 }}
             className={className}
         >
             {children}
