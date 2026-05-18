@@ -10,7 +10,10 @@ export default function Reason() {
 
                 <div className="reason-content">
                     <p>
-                        빠르게 변화하는 시장 속, 우리는 마케팅을 통해 브랜드와 고객을 연결합니다.
+                        급변하는 시장의 흐름 속에서
+                    </p>
+                    <p>
+                        브랜드의 가치를 고객에게 직접 전달합니다.
                     </p>
                     <p>
                         전략, 실행, 성과까지 도와드리는 파트너가 되어드립니다.
